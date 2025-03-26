@@ -186,7 +186,24 @@ function isGameOver() {
             if (r < 3 && board[r][c] === board[r + 1][c]) return false; // Bisa geser bawah
         }
     }
+    
+    // Game over -> hentikan musik
+    bgMusic.pause();
+    musicBtn.innerText = "🔇";
+    
     return true; // Tidak ada gerakan yang bisa dilakukan
+}
+
+// Fungsi untuk restart game
+function restartGame() {
+    board = Array(4).fill().map(() => Array(4).fill(0));
+    addRandomTile();
+    addRandomTile();
+    updateBoard();
+    document.getElementById("game-over").style.display = "none";
+
+    // Reset musik agar bisa dimainkan lagi
+    bgMusic.currentTime = 0;
 }
 
 // Fungsi untuk restart game
@@ -222,4 +239,3 @@ document.addEventListener("DOMContentLoaded", () => {
             musicBtn.innerText = "🔇";
         }
     });
-    
