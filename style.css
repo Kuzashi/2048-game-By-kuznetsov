@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #faf8ef;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#game-container {
+    position: relative;
+    background: #bbada0;
+    padding: 10px; /* Kurangi padding biar border tidak tebal */
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(4, 80px);
+    gap: 5px; /* Kurangi gap biar lebih proporsional */
+    background-color: #bbada0;
+    padding: 5px; /* Sesuaikan padding */
+    border-radius: 10px;
+    position: relative;
+}
+
+.cell {
+    width: 75px; /* Sedikit lebih besar biar pas */
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #eee4da;
+    transition: transform 0.15s ease-out; /* Perbaiki animasi biar nggak bergetar */
+}
+
+/* Animasi tile baru hanya untuk yang benar-benar baru */
+@keyframes newTile {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.new-tile {
+    animation: newTile 0.15s ease-out;
+}
+
+/* Warna angka */
+.cell[data-value="2"] { background: #eee4da; color: #776e65; }
+.cell[data-value="4"] { background: #ede0c8; color: #776e65; }
+.cell[data-value="8"] { background: #f2b179; color: white; }
+.cell[data-value="16"] { background: #f59563; color: white; }
+.cell[data-value="32"] { background: #f67c5f; color: white; }
+.cell[data-value="64"] { background: #f65e3b; color: white; }
+.cell[data-value="128"] { background: #edcf72; color: white; }
+.cell[data-value="256"] { background: #edcc61; color: white; }
+.cell[data-value="512"] { background: #edc850; color: white; }
+.cell[data-value="1024"] { background: #edc53f; color: white; }
+.cell[data-value="2048"] { background: #edc22e; color: white; }
+
+#game-over {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    background: #8f7a66;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #776e65;
+}

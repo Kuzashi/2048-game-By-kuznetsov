@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>2048</h1>
+    <div id="game-container">
+        <div id="grid"></div>
+        <div id="game-over">Game Over! <br> 
+            <button onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+    
+    <audio id="bg-music" loop>
+        <source src="Graze the Roof (Roof) - Plants vs. Zombies.mp3" type="audio/mp3">
+        Browser kamu tidak mendukung elemen audio.
+    </audio>
+    <button id="musicBtn">🔊</button>
+
+    <script src="main.js" defer></script> 
+</body>
+</html>
